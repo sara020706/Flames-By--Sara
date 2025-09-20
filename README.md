@@ -75,3 +75,4 @@ This project is just for fun. Results are not scientifically accurate 😉.
 Feel free to use, modify, and share!
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ✨ Made with ❤️ using React + Tailwind
+For support, email ps2601296@gmail.com or create a issue in the repository
