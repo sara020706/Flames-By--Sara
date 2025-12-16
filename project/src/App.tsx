@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, Sparkles, Users, ArrowRight, RotateCcw } from 'lucide-react';
+import EmailSender from './components/EmailSender';
 
 function App() {
   const [name1, setName1] = useState('');
@@ -14,9 +15,8 @@ function App() {
   
       setTimeout(() => {
         setIsCalculating(false);
-        setShowResult(true);
-  
-        // Step 1: Clean names
+
+          // Step 1: Clean names
         let n1 = name1.toLowerCase().replace(/\s+/g, '');
         let n2 = name2.toLowerCase().replace(/\s+/g, '');
   
@@ -49,11 +49,14 @@ function App() {
         };
   
         const resultStatus = mapping[flames[0]];
-  
+
         // Just for fun, add percentage
         const randomPercentage = Math.floor(Math.random() * 100) + 1;
-  
+
         setResult({ status: resultStatus, percentage: randomPercentage });
+        // Show result after we computed it so downstream effects (email send)
+        // receive the correct values.
+        setShowResult(true);
       }, 2000);
     }
   };
@@ -254,6 +257,11 @@ function App() {
                 <RotateCcw className="w-5 h-5" />
                 <span>Try Again</span>
               </button>
+
+              {/* Email Results (uses EmailJS) */}
+              <div className="mt-4">
+                <EmailSender name1={name1} name2={name2} result={result} />
+              </div>
             </div>
           )}
         </div>
